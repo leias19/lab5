@@ -6,6 +6,12 @@ import managers.Validator;
 import java.util.Scanner;
 
 public class HumanBeingGenerator {
+    /**
+     * Метод для создания человека
+     * @param id id
+     * @return Человек
+     * @throws IncorrectInputException Исключение при некорректном вводе
+     */
     public static HumanBeing createHumanBeing(Integer id) throws IncorrectInputException {
         System.out.println("Generate...");
 

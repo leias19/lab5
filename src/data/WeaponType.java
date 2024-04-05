@@ -6,6 +6,9 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlType(name = "WeaponType")
 @XmlEnum
+/**
+ * Перечисление типов оружия
+ */
 public enum WeaponType {
     @XmlEnumValue("HAMMER")
     HAMMER,

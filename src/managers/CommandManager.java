@@ -3,12 +3,19 @@ package managers;
 import commands.*;
 import errors.NoElementException;
 import errors.UnknownCommandException;
+import errors.UnknownElementException;
+
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class CommandManager {
     private static Map<String, Command> commandList;
 
+    /**
+     * Конструктор для CommandManager
+     */
     public CommandManager() {
         commandList = new HashMap<>();
         commandList.put("help", new Help());
@@ -29,15 +36,38 @@ public class CommandManager {
         commandList.put("count_less_than_weapon_type", new CountLessThanWeaponType());
     }
 
-    public static void startExecuting(String line) throws Exception, NoElementException {
+    /**
+     *  Метод для запуска команд
+     * @param line строка
+     * @throws NoElementException ошибка при отсутствии элемента
+     * @throws UnknownCommandException ошибка при отсутствии команды
+     * @throws FileNotFoundException ошибка при отсутствии файла
+     * @throws UnknownElementException ошибка при отсутствии элемента
+     */
+    public static void startExecuting(String line, Set<String> scripts) throws NoElementException, UnknownCommandException, FileNotFoundException, UnknownElementException {
         String commandName = line.split(" ")[0];
         if (!commandList.containsKey(commandName)) {
             throw new UnknownCommandException(commandName);
         }
         Command command = commandList.get(commandName);
+        if (commandName.equals("execute_script")) {
+            String scriptName = line.split(" ")[1];
+            if (scripts.contains(scriptName)) {
+                System.err.println("произошла рекурсия");
+                scripts.clear();
+                return;
+            }else{
+                scripts.add(scriptName);
+            }
+        }
         command.execute(line.split(" "));
 
     }
+
+    /**
+     *  Метод для получения списка команд
+     * @return список команд
+     */
     public Map<String, Command> getCommandList() {
         return commandList;
     }

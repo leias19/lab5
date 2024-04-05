@@ -12,9 +12,13 @@ import java.util.TreeMap;
 
 
 public class ReplaceIfGreater implements Command {
+    /**
+     *  Метод для выполнения команды replace_if_greater
+     * @param args аргумент
+     */
 
     @Override
-    public void execute(String[] args) throws IncorrectInputException, UnknownElementException {
+    public void execute(String[] args)  {
         try {
             if (args.length == 1) {
                 System.out.println("введите ключ после 'replace_if_greater'");
@@ -38,10 +42,20 @@ public class ReplaceIfGreater implements Command {
         }
     }
 
+    /**
+     *  Метод для получения имени команды replace_if_greater
+     * @return имя
+     */
+
     @Override
     public String getName() {
         return "replace_if_greater";
     }
+
+    /**
+     *  Метод для получения описания команды replace_if_greater
+     * @return описание
+     */
 
     @Override
     public String getDescription() {

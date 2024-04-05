@@ -12,6 +12,11 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class FileManager {
+    /**
+     *  Метод для считывания файла
+     * @param filePath путь к файлу
+     * @return список людей
+     */
 
     public static Community readFile(String filePath) {
         File file = new File(filePath);
@@ -40,6 +45,11 @@ public class FileManager {
         }
         return new Community();
     }
+
+    /**
+     *  Метод для записи в файл
+     * @param collection коллекция
+     */
 
     public static void writeFile(Map<String, HumanBeing> collection) {
         String filePath = "example.xml";

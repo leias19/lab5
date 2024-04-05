@@ -7,8 +7,12 @@ import data.HumanBeing;
 import java.util.TreeMap;
 
 public class MaxById implements Command {
+    /**
+     *  Метод для выполнения команды max_by_id
+     * @param args аргумент
+     */
     @Override
-    public void execute(String[] args) throws Exception {
+    public void execute(String[] args) {
         HumanBeing humanBeing = null;
         TreeMap<String, HumanBeing> map = CollectionManager.getMap();
         for (String key : map.keySet()) {
@@ -22,10 +26,20 @@ public class MaxById implements Command {
         System.out.println("команда выполнена :)");
     }
 
+    /**
+     *  Метод для получения имени команды max_by_id
+     * @return имя
+     */
+
     @Override
     public String getName() {
         return "max_by_id";
     }
+
+    /**
+     *  Метод для получения описания команды max_by_id
+     * @return описание
+     */
 
     @Override
     public String getDescription() {

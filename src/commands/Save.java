@@ -10,6 +10,10 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Save implements Command {
+    /**
+     *  Метод для выполнения команды save
+     * @param arg аргумент
+     */
     @Override
     public void execute(String[] arg)  {
         Map<String, HumanBeing> map = CollectionManager.getMap();
@@ -35,10 +39,20 @@ public class Save implements Command {
         }
     }
 
+    /**
+     *  Метод для получения имени команды save
+     * @return имя
+     */
+
     @Override
     public String getName() {
         return "save";
     }
+
+    /**
+     *  Метод для получения описания команды save
+     * @return описание
+     */
 
     @Override
     public String getDescription() {

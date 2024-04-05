@@ -7,6 +7,11 @@ import data.generators.HumanBeingGenerator;
 
 
 public class UpdateId implements Command {
+    /**
+     *  Метод для выполнения команды update_id
+     * @param arg аргумент
+     * @throws NoElementException ошибка при отсутствии элемента
+     */
     @Override
     public void execute(String[] arg) throws NoElementException {
         try {
@@ -31,10 +36,20 @@ public class UpdateId implements Command {
         }
     }
 
+    /**
+     *  Метод для получения имени команды update_id
+     * @return имя
+     */
+
     @Override
     public String getName() {
         return "update_id";
     }
+
+    /**
+     *  Метод для получения описания команды update_id
+     * @return описание
+     */
 
     @Override
     public String getDescription() {

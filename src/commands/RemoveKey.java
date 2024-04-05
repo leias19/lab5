@@ -4,6 +4,11 @@ import managers.CollectionManager;
 import errors.UnknownElementException;
 
 public class RemoveKey implements Command {
+    /**
+     *  Метод для выполнения команды remove_key
+     * @param arg аргумент
+     * @throws UnknownElementException ошибка при отсутствии элемента
+     */
     @Override
     public void execute(String[] arg) throws UnknownElementException {
         if (arg.length == 1) {
@@ -14,10 +19,20 @@ public class RemoveKey implements Command {
         }
     }
 
+    /**
+     *  Метод для получения имени команды remove_key
+     * @return имя
+     */
+
     @Override
     public String getName() {
         return "remove_key";
     }
+
+    /**
+     *  Метод для получения описания команды remove_key
+     * @return  описание
+     */
 
     @Override
     public String getDescription() {

@@ -5,6 +5,11 @@ import data.WeaponType;
 import errors.IncorrectInputException;
 
 public class Validator {
+    /**
+     * Метод для проверки положительного числа
+     * @param args  - аргумент
+     * @throws IncorrectInputException ошибка при отрицательном числе
+     */
     public static void moreThanZero(String args) throws IncorrectInputException {
         try {
             int id = Integer.parseInt(args);
@@ -16,6 +21,12 @@ public class Validator {
         }
     }
 
+    /**
+     *  Метод для проверки координат
+     * @param args  - аргумент
+     * @throws IncorrectInputException ошибка при отрицательном числе
+     * @throws NullPointerException ошибка при отрицательном числе
+     */
     public static void coordinateXIsRight(String args) throws IncorrectInputException, NullPointerException {
         try {
             int x = Integer.parseInt(args);
@@ -27,6 +38,13 @@ public class Validator {
             throw new IncorrectInputException("x");
         }
     }
+
+    /**
+     *  Метод для проверки координат
+     * @param args  - аргумент
+     * @throws IncorrectInputException ошибка при отрицательном числе
+     * @throws NullPointerException ошибка при отрицательном числе
+     */
 
     public static void coordinateYIsRight(String args) throws IncorrectInputException, NullPointerException {
         try {
@@ -40,6 +58,13 @@ public class Validator {
         }
     }
 
+    /**
+     *  Метод для проверки логического значения
+     * @param args - аргумент
+     * @param data - ошибка при отрицательном числе
+     * @throws NullPointerException ошибка при отрицательном числе
+     */
+
     public static void booleanNotNull(String args, String data) throws NullPointerException {
         try{
             Boolean value = Boolean.parseBoolean(args);
@@ -48,6 +73,13 @@ public class Validator {
             throw new NullPointerException(data);
         }
     }
+
+    /**
+     *  Метод для проверки логического значения
+     * @param args - аргумент
+     * @param data - ошибка при отрицательном числе
+     * @throws IncorrectInputException ошибка при отрицательном числе
+     */
 
     public static void booleanIsBoolean(String args, String data) throws IncorrectInputException {
         try{
@@ -58,6 +90,13 @@ public class Validator {
         }
     }
 
+    /**
+     *  Метод для проверки целого числа
+     * @param args - аргумент
+     * @return boolean
+     * @throws IncorrectInputException ошибка при отрицательном числе
+     */
+
     public static boolean intIsInt(String args) throws IncorrectInputException {
         try{
             int value = Integer.parseInt(args);
@@ -67,6 +106,13 @@ public class Validator {
         }
     }
 
+    /**
+     *  Метод для проверки вещественного числа
+     * @param args - аргумент
+     * @param data - ошибка при отрицательном числе
+     * @throws IncorrectInputException ошибка при отрицательном числе
+     */
+
     public static void doubleIsDouble(String args, String data) throws IncorrectInputException {
         try{
             double value = Double.parseDouble(args);
@@ -75,6 +121,12 @@ public class Validator {
             throw new IncorrectInputException(data);
         }
     }
+
+    /**
+     *  Метод для проверки вещественного числа
+     * @param args - аргумент
+     * @throws IncorrectInputException ошибка при отрицательном числе
+     */
 
 
 
@@ -86,6 +138,12 @@ public class Validator {
         }
     }
 
+    /**
+     *  Метод для проверки вещественного числа
+     * @param args - аргумент
+     * @throws IncorrectInputException ошибка при отрицательном числе
+     */
+
     public static void weaponTypeIsRight(String args) throws IncorrectInputException {
         try {
             WeaponType.valueOf(args);
@@ -93,6 +151,13 @@ public class Validator {
             throw new IncorrectInputException("WeaponType");
         }
     }
+
+    /**
+     *  Метод для проверки вещественного числа
+     * @param args - аргумент
+     * @param data  - ошибка при отрицательном числе
+     * @throws IncorrectInputException ошибка при отрицательном числе
+     */
 
     public static void inputIsNotEmpty(String args, String data) throws IncorrectInputException{
         if (args.isEmpty() || args.trim().isEmpty()) {

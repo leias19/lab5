@@ -10,9 +10,19 @@ public class Community {
     @XmlElement
     public TreeMap<String, HumanBeing> humans = new TreeMap<>();
 
+    /**
+     * Метод для добавления элемента
+     * @param key ключ
+     * @param humanBeing человек
+     */
     public void addPersonToHuman(String key, HumanBeing humanBeing) {
         humans.put(key, humanBeing);
     }
+
+    /**
+     *  Метод для получения элемента
+     * @return Коллекцию
+     */
 
     public TreeMap<String, HumanBeing> getHuman() {
         return humans;

@@ -9,6 +9,11 @@ import managers.CollectionManager;
 
 
 public class RemoveAnyByMood implements Command {
+    /**
+     *  Метод для выполнения команды remove_any_by_mood
+     * @param arg аргумент
+     * @throws NoElementException ошибка при отсутствии элемента
+     */
     @Override
     public void execute(String[] arg) throws NoElementException {
         try {
@@ -29,10 +34,20 @@ public class RemoveAnyByMood implements Command {
         }
     }
 
+    /**
+     *  Метод для получения имени команды remove_any_by_mood
+     * @return имя
+     */
+
     @Override
     public String getName() {
         return "remove_any_by_mood";
     }
+
+    /**
+     *  Метод для получения описания команды remove_any_by_mood
+     * @return описание
+     */
 
     @Override
     public String getDescription() {

@@ -6,6 +6,10 @@ import errors.UnknownElementException;
 import managers.CollectionManager;
 
 public class CountLessThanWeaponType implements Command {
+    /**
+     *  Метод для выполнения команды count_less_than_weight
+     * @param arg аргумент
+     */
     @Override
     public void execute(String[] arg)  {
         try {
@@ -24,10 +28,20 @@ public class CountLessThanWeaponType implements Command {
         }
     }
 
+    /**
+     *  Метод для получения имени команды count_less_than_weight
+     * @return имя
+     */
+
     @Override
     public String getName() {
         return "count_less_than_weapon_type weaponType";
     }
+
+    /**
+     *  Метод для получения описания команды count_less_than_weight
+     * @return описание
+     */
 
     @Override
     public String getDescription() {

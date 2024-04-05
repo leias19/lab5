@@ -5,6 +5,9 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 
 @XmlEnum(String.class)
+/**
+ *  Перечисление состояний чувства
+ */
 public enum Mood {
     @XmlEnumValue("SADNESS")
     SADNESS,

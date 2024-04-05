@@ -26,6 +26,11 @@ public class HumanBeing implements Comparable<HumanBeing>{
     private Car car;
 
 
+    /**
+     *  Конструктор для HumanBeing
+     * @param data данные
+     * @throws Exception ошибка ввода
+     */
     public HumanBeing(String[] data) throws Exception{
         Validator.moreThanZero(data[1]);
         Validator.inputIsNotEmpty(data[2], "name");
@@ -54,6 +59,10 @@ public class HumanBeing implements Comparable<HumanBeing>{
 
     }
 
+    /**
+     *  Конструктор для HumanBeing
+     */
+
     public HumanBeing(){
         this.id = IdGenerator.generateid();
         this.name = null;
@@ -68,6 +77,10 @@ public class HumanBeing implements Comparable<HumanBeing>{
         this.car = null;
     }
 
+    /**
+     *  Конструктор для HumanBeing
+     * @param id id
+     */
     public HumanBeing(int id){
         this.id = id;
         this.name = null;
@@ -82,6 +95,10 @@ public class HumanBeing implements Comparable<HumanBeing>{
         this.car = null;
     }
 
+    /**
+     *  Метод для вывода информации
+     * @return информацию о человеке
+     */
 
     @Override
     public String toString() {
@@ -103,86 +120,201 @@ public class HumanBeing implements Comparable<HumanBeing>{
     }
 
 
+    /**
+     *  Метод для получения id
+     * @return id
+     */
 
     public int getId() {
         return id;
     }
+
+    /**
+     *  Метод для установки id
+     * @param id id
+     */
     public void setId(int id) {
         this.id = id;
     }
+
+    /**
+     *  Метод для получения имени
+     * @return имя
+     */
 
 
     public String getName() {
         return name;
     }
+
+    /**
+     *  Метод для установки имени
+     * @param name имя
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *  Метод для получения координат
+     * @return координаты
+     */
+
     public Coordinates getCoordinates() {
         return coordinates;
     }
+
+    /**
+     *  Метод для установки координат
+     * @param coordinates координаты
+     */
     public void setCoordinates(Coordinates coordinates) {
         this.coordinates = coordinates;
     }
+
+    /**
+     *  Метод для получения даты создания
+     * @return дата
+     */
 
     @XmlElement(name = "creationdate")
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
     public LocalDate getCreationDate() {
         return creationDate;
     }
+
+    /**
+     *  Метод для установки даты создания
+     * @param creationDate дата
+     */
     public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }
 
+    /**
+     *  Метод для получения реального героя
+      * @return boolean
+     */
+
     public Boolean getRealHero() {
         return realHero;
     }
+
+    /**
+     *  Метод для установки реального героя
+     * @param realHero наличие реального героя
+     */
     public void setRealHero(Boolean realHero){
         this.realHero = realHero;
     }
 
+    /**
+     *  Метод для получения зубочистки
+     * @return boolean
+     */
+
     public boolean getHasToothpick(){
         return hasToothpick;
     }
+
+    /**
+     *  Метод для установки зубочистки
+     * @param hasToothpick наличие зубочистки
+     */
     public void setHasToothpick(boolean hasToothpick){
         this.hasToothpick = hasToothpick;
     }
 
+    /**
+     *  Метод для получения импульса
+     * @return  скорость импульса
+     */
+
     public double getImpactSpeed(){
         return impactSpeed;
     }
+
+    /**
+     *  Метод для установки импульса
+     * @param impactSpeed скорость импульса
+     */
     public void setImpactSpeed(double impactSpeed){
         this.impactSpeed = impactSpeed;
     }
 
+    /**
+     *  Метод для получения названия саундтрека
+     * @return название саундтрека
+     */
+
     public String getSoundtrackName(){
         return soundtrackName;
     }
+
+    /**
+     *  Метод для установки названия саундтрека
+     * @param soundtrackName название саундтрека
+     */
     public void setSoundtrackName(String soundtrackName){
         this.soundtrackName = soundtrackName;
     }
 
+    /**
+     *  Метод для получения типа оружия
+     * @return тип оружия
+     */
+
     public WeaponType getWeaponType() {
         return weaponType;
     }
+
+    /**
+     *  Метод для установки типа оружия
+     * @param weaponType тип оружия
+     */
     public void setWeaponType(WeaponType weaponType){
         this.weaponType = weaponType;
     }
 
+    /**
+     *  Метод для получения типа настроения
+     * @return настроение
+     */
+
     public Mood getMood() {
         return mood;
     }
+
+    /**
+     *  Метод для установки типа настроения
+     * @param mood настроение
+     */
     public void setMood(Mood mood){
         this.mood = mood;
     }
 
+    /**
+     *  Метод для получения автомобиля
+     * @return автомобиль
+     */
+
     public Car getCar(){
         return car;
     }
+
+    /**
+     *  Метод для установки автомобиля
+     * @param car автомобиль
+     */
     public void setCar(Car car){
         this.car = car;
     }
+
+    /**
+     *  Метод для сравнения
+     * @param humanBeing the object to be compared.
+     * @return the value 0 if this object is equal to the argument
+     */
 
     @Override
     public int compareTo(HumanBeing humanBeing) {

@@ -1,15 +1,18 @@
 package commands;
 
 import managers.CollectionManager;
-import errors.UnknownElementException;
 import data.HumanBeing;
 
 
 import java.util.TreeMap;
 
 public class Clear implements Command{
+    /**
+     *  Метод для выполнения команды clear
+     * @param arg аргумент
+     */
     @Override
-    public void execute(String[] arg) throws UnknownElementException {
+    public void execute(String[] arg)  {
         TreeMap<String, HumanBeing> map = CollectionManager.getMap();
         map.clear();
         CollectionManager.setMap(map);
@@ -17,10 +20,20 @@ public class Clear implements Command{
 
     }
 
+    /**
+     *  Метод для получения имени команды clear
+     * @return имя
+     */
+
     @Override
     public String getName() {
         return "clear";
     }
+
+    /**
+     *  Метод для получения описания команды clear
+     * @return описание
+     */
 
     @Override
     public String getDescription() {

@@ -1,4 +1,5 @@
 info
 show
 max_by_id
+execute_script test.txt
 kjhgfds

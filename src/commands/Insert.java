@@ -6,9 +6,13 @@ import data.HumanBeing;
 import data.generators.HumanBeingGenerator;
 
 public class Insert implements Command {
+    /**
+     *  Метод для выполнения команды insert
+     * @param arg аргумент
+     */
 
     @Override
-    public void execute(String[] arg) throws Exception {
+    public void execute(String[] arg) {
         try {
             if (arg.length == 1){
                 System.out.println("введите ключ после 'insert'");
@@ -22,10 +26,20 @@ public class Insert implements Command {
 
     }
 
+    /**
+     *  Метод для получения имени команды insert
+     * @return имя
+     */
+
     @Override
     public String getName() {
         return "insert";
     }
+
+    /**
+     *  Метод для получения описания команды insert
+     * @return описание
+     */
 
     @Override
     public String getDescription() {
