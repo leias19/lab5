@@ -56,7 +56,7 @@ public class CommandManager {
                 System.err.println("произошла рекурсия");
                 scripts.clear();
                 return;
-            }else{
+            } else {
                 scripts.add(scriptName);
             }
         }
