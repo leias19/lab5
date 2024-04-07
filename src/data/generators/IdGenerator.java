@@ -33,8 +33,9 @@ public class IdGenerator {
     public static boolean idIsUnique(int id){
         if (idList.contains(id)){
             return false;
+        }else{
+            return true;
         }
-        return true;
     }
 
     /**

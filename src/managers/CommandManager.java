@@ -1,10 +1,9 @@
 package managers;
 
 import commands.*;
-import errors.NoElementException;
+import errors.IncorrectInputException;
 import errors.UnknownCommandException;
 import errors.UnknownElementException;
-
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,19 +38,19 @@ public class CommandManager {
     /**
      *  Метод для запуска команд
      * @param line строка
-     * @throws NoElementException ошибка при отсутствии элемента
      * @throws UnknownCommandException ошибка при отсутствии команды
      * @throws FileNotFoundException ошибка при отсутствии файла
      * @throws UnknownElementException ошибка при отсутствии элемента
      */
-    public static void startExecuting(String line, Set<String> scripts) throws NoElementException, UnknownCommandException, FileNotFoundException, UnknownElementException {
-        String commandName = line.split(" ")[0];
+    public static void startExecuting(String line, Set<String> scripts) throws UnknownCommandException, FileNotFoundException, UnknownElementException, IncorrectInputException {
+        String[] lines = line.split(" ");
+        String commandName = lines[0];
         if (!commandList.containsKey(commandName)) {
             throw new UnknownCommandException(commandName);
         }
         Command command = commandList.get(commandName);
         if (commandName.equals("execute_script")) {
-            String scriptName = line.split(" ")[1];
+            String scriptName = lines[1];
             if (scripts.contains(scriptName)) {
                 System.err.println("произошла рекурсия");
                 scripts.clear();
@@ -61,6 +60,9 @@ public class CommandManager {
             }
         }
         command.execute(line.split(" "));
+        if(!commandName.equals("execute_script")) {
+            System.out.println("команда выполнена :)");
+        }
 
     }
 

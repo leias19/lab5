@@ -1,6 +1,5 @@
 package data;
 
-import javax.xml.bind.annotation.XmlElement;
 
 public class Coordinates {
     private Integer x;
@@ -65,6 +64,6 @@ public class Coordinates {
      */
 
     public int getVektor(int x, long y){
-        return Integer.parseInt(String.valueOf(Math.sqrt(x^2 + y^2)));
+        return (int) Double.parseDouble(String.valueOf(Math.sqrt(x^2 + y^2)));
     }
 }

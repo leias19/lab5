@@ -12,7 +12,6 @@ public class Info implements Command{
         System.out.println("Data type - " + CollectionManager.getMap().getClass().getName());
         System.out.println("Count of persons - " + CollectionManager.getMap().size());
         System.out.println("Init date - " + CollectionManager.getDate());
-        System.out.println("команда выполнена :)");
 
     }
 

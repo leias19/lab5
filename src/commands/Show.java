@@ -2,7 +2,6 @@ package commands;
 
 import managers.CollectionManager;
 import data.HumanBeing;
-
 import java.util.TreeMap;
 
 public class Show implements Command {
@@ -20,7 +19,6 @@ public class Show implements Command {
         for (String s : map.keySet()) {
             System.out.println(map.get(s));
         }
-        System.out.println("команда выполнена :)");
 
     }
 

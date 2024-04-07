@@ -23,7 +23,6 @@ public class MaxById implements Command {
             }
         }
         System.out.println(humanBeing);
-        System.out.println("команда выполнена :)");
     }
 
     /**

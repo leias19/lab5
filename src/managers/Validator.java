@@ -94,10 +94,9 @@ public class Validator {
      *  Метод для проверки целого числа
      * @param args - аргумент
      * @return boolean
-     * @throws IncorrectInputException ошибка при отрицательном числе
      */
 
-    public static boolean intIsInt(String args) throws IncorrectInputException {
+    public static boolean intIsInt(String args) {
         try{
             int value = Integer.parseInt(args);
             return true;

@@ -3,7 +3,6 @@ package commands;
 
 import data.HumanBeing;
 import data.Mood;
-import errors.NoElementException;
 import errors.UnknownElementException;
 import managers.CollectionManager;
 
@@ -12,21 +11,16 @@ public class RemoveAnyByMood implements Command {
     /**
      *  Метод для выполнения команды remove_any_by_mood
      * @param arg аргумент
-     * @throws NoElementException ошибка при отсутствии элемента
      */
     @Override
-    public void execute(String[] arg) throws NoElementException {
+    public void execute(String[] arg)  {
         try {
-            Mood moodToRemove = Mood.valueOf(arg[1]);
+            Mood moodToRemove = Mood.valueOf(arg[1].toUpperCase());
             for (String key : CollectionManager.getMap().keySet()) {
                 if (CollectionManager.getMap().get(key).getMood() == moodToRemove) {
-                    HumanBeing humanBeing = new HumanBeing();
                     CollectionManager.remove(key);
-                    CollectionManager.add(key, humanBeing);
                     System.out.println("удаление выполнено");
-                }
-                else {
-                    throw new UnknownElementException();
+                    break;
                 }
             }
         } catch (Exception e) {

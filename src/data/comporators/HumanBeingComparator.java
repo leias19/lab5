@@ -1,12 +1,12 @@
 package data.comporators;
 
 import data.HumanBeing;
-
 import java.util.Comparator;
 
 public class HumanBeingComparator implements Comparator<HumanBeing> {
     /**
-     *  Метод для сравнения
+     * Метод для сравнения
+     *
      * @param h1 the first object to be compared.
      * @param h2 the second object to be compared.
      * @return the value 0 if this object is equal to the argument

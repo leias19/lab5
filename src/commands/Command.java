@@ -2,26 +2,25 @@ package commands;
 import errors.*;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 public interface Command {
     /**
-     *  Метод для выполнения команд
+     *  Метод для выполнения команды
      * @param arg аргумент
-     * @throws NoElementException ошибка при отсутствии элемента
-     * @throws Exception ошибка при выполнении
+     * @throws FileNotFoundException Исключение при некорректном вводе
+     * @throws UnknownElementException Исключение при некорректном вводе
      */
-    public void execute(String[] arg) throws NoElementException, FileNotFoundException, UnknownElementException;
+    void execute(String[] arg) throws FileNotFoundException, UnknownElementException, IncorrectInputException;
 
     /**
      *  Метод для получения имени команды
      * @return имя
      */
-    public String getName();
+    String getName();
 
     /**
      *  Метод для получения описания
      * @return описание
      */
-    public String getDescription();
+    String getDescription();
 }

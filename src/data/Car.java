@@ -1,6 +1,5 @@
 package data;
 
-import javax.xml.bind.annotation.XmlElement;
 
 public class Car {
     private String name;

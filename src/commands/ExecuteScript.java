@@ -1,8 +1,8 @@
 package commands;
 
-
-import errors.NoElementException;
-import managers.CollectionManager;
+import errors.IncorrectInputException;
+import errors.UnknownCommandException;
+import errors.UnknownElementException;
 import managers.CommandManager;
 import java.io.*;
 import java.util.HashSet;
@@ -15,7 +15,7 @@ public class ExecuteScript implements Command {
     /**
      *  Метод для выполнения команды execute_script
      * @param args аргумент
-     * @throws Exception ошибка при выполнении
+     * @throws FileNotFoundException Исключение при некорректном вводе
      */
     @Override
     public void execute(String[] args) throws FileNotFoundException {
@@ -27,10 +27,12 @@ public class ExecuteScript implements Command {
                 CommandManager.startExecuting(line, scripts);
             }
             System.out.println("команда выполнена :)");
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        } catch (NoElementException e) {
-            System.out.println(" нет такого файла");
+        } catch (FileNotFoundException e) {
+            System.out.println("нет такого файла");
+        } catch (UnknownElementException e) {
+            System.err.println("неизвестный элемент");
+        } catch (UnknownCommandException | IncorrectInputException e) {
+            System.err.println(e.getMessage());
         }
     }
 

@@ -2,7 +2,6 @@ package commands;
 
 import managers.CollectionManager;
 import data.HumanBeing;
-
 import java.util.Scanner;
 import java.util.TreeMap;
 

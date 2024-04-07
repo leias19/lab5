@@ -1,7 +1,8 @@
 package commands;
 
+import errors.IncorrectInputException;
+import errors.UnknownElementException;
 import managers.CollectionManager;
-import errors.NoElementException;
 import data.HumanBeing;
 import data.generators.HumanBeingGenerator;
 
@@ -10,10 +11,9 @@ public class UpdateId implements Command {
     /**
      *  Метод для выполнения команды update_id
      * @param arg аргумент
-     * @throws NoElementException ошибка при отсутствии элемента
      */
     @Override
-    public void execute(String[] arg) throws NoElementException {
+    public void execute(String[] arg) {
         try {
             if (arg.length == 1) {
                 System.out.println("введите id после 'update_id'");
@@ -31,8 +31,10 @@ public class UpdateId implements Command {
                     }
                 }
             }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (UnknownElementException e) {
+            System.err.println(e.getMessage());
+        } catch (IncorrectInputException e) {
+            System.err.println("некорректный ввод");
         }
     }
 

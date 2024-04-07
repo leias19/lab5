@@ -15,5 +15,5 @@ public enum WeaponType {
     @XmlEnumValue("KNIFE")
     KNIFE,
     @XmlEnumValue("BAT")
-    BAT;
+    BAT
 }

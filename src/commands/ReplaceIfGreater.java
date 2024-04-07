@@ -1,8 +1,8 @@
 package commands;
 
-import managers.CollectionManager;
 import errors.IncorrectInputException;
 import errors.UnknownElementException;
+import managers.CollectionManager;
 import data.HumanBeing;
 import data.comporators.HumanBeingComparator;
 import data.generators.HumanBeingGenerator;
@@ -18,27 +18,16 @@ public class ReplaceIfGreater implements Command {
      */
 
     @Override
-    public void execute(String[] args)  {
-        try {
-            if (args.length == 1) {
-                System.out.println("введите ключ после 'replace_if_greater'");
-            }else{
-                String key = args[1];
-                TreeMap<String, HumanBeing> map = CollectionManager.getMap();
-                HumanBeingComparator h1 = new HumanBeingComparator();
-                if (map.containsKey(key)) {
-                    HumanBeing humanBeing = HumanBeingGenerator.createHumanBeing(0);
-                    if (h1.compare(humanBeing, map.get(key)) > 0) {
-                        CollectionManager.remove(key);
-                        CollectionManager.add(key, humanBeing);
-                    }
-                }else{
-                    System.out.println("элемент с таким ключом отсутствует");
-                }
+    public void execute(String[] args) throws UnknownElementException, IncorrectInputException {
+        String key = args[1];
+        TreeMap<String, HumanBeing> map = CollectionManager.getMap();
+        HumanBeingComparator h1 = new HumanBeingComparator();
+        if (map.containsKey(key)) {
+            HumanBeing humanBeing = HumanBeingGenerator.createHumanBeing(0);
+            if (h1.compare(humanBeing, map.get(key)) > 0) {
+                CollectionManager.remove(key);
+                CollectionManager.add(key, humanBeing);
             }
-            System.out.println("команда выполнена :)");
-        }catch (Exception e){
-            System.out.println(e.getMessage());
         }
     }
 

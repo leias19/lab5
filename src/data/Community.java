@@ -1,6 +1,6 @@
 package data;
+
 import javax.xml.bind.annotation.*;
-import java.util.Map;
 import java.util.TreeMap;
 
 @XmlType(name = "humans")
