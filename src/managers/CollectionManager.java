@@ -12,6 +12,7 @@ public class CollectionManager {
 
     /**
      * Метод для получения даты создания коллекции
+     *
      * @return дату создания
      */
     public static LocalDate getDate() {
@@ -20,6 +21,7 @@ public class CollectionManager {
 
     /**
      * Метод для удаления элемента по ключу
+     *
      * @param key ключ
      * @throws UnknownElementException ошибка при отсутствии элемента
      */
@@ -33,7 +35,8 @@ public class CollectionManager {
 
     /**
      * Метод для добавления в коллекцию
-     * @param key ключ
+     *
+     * @param key        ключ
      * @param humanBeing человек
      */
     public static void add(String key, HumanBeing humanBeing) {
@@ -44,7 +47,8 @@ public class CollectionManager {
     }
 
     /**
-     *Метод для получения коллекции
+     * Метод для получения коллекции
+     *
      * @return коллекцию
      */
     public static TreeMap<String, HumanBeing> getMap() {
@@ -53,6 +57,7 @@ public class CollectionManager {
 
     /**
      * Метод для установки коллекции
+     *
      * @param map коллекция
      */
 
@@ -61,4 +66,11 @@ public class CollectionManager {
 
     }
 
+    public static void removeIf(HumanBeing humanBeing) {
+        for (String key : map.keySet()) {
+            if (map.get(key) == humanBeing) {
+                map.remove(key);
+            }
+        }
+    }
 }

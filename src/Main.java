@@ -1,4 +1,3 @@
-
 import managers.Console;
 
 public class Main {
