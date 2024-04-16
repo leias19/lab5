@@ -17,6 +17,10 @@ public class ReplaceIfGreater implements Command {
      * @param args аргумент
      */
 
+    /*
+    переделать команду без компаратора
+    map.stream().filter(predicate).onEach(key, value -> value = newValue)
+     */
     @Override
     public void execute(String[] args) throws UnknownElementException, IncorrectInputException {
         String key = args[1];

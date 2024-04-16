@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class IdGenerator {
     private static ArrayList<Integer> idList = new ArrayList<>();
-
     /**
      *  Пустой конструктор для Id
      */

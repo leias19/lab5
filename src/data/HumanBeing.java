@@ -52,8 +52,8 @@ public class HumanBeing implements Comparable<HumanBeing>{
         this.hasToothpick = Boolean.parseBoolean(data[6]);
         this.impactSpeed = Double.parseDouble(data[7]);
         this.soundtrackName = data[8];
-        this.weaponType = WeaponType.valueOf(data[9]);
-        this.mood = Mood.valueOf(data[10]);
+        this.weaponType = WeaponType.valueOf(data[9].toUpperCase());
+        this.mood = Mood.valueOf(data[10].toUpperCase());
         this.car = new Car(data[11], Boolean.parseBoolean(data[12]));
 
     }

@@ -25,16 +25,14 @@ public class Validator {
      *  Метод для проверки координат
      * @param args  - аргумент
      * @throws IncorrectInputException ошибка при отрицательном числе
-     * @throws NullPointerException ошибка при отрицательном числе
      */
-    public static void coordinateXIsRight(String args) throws IncorrectInputException, NullPointerException {
+    public static void coordinateXIsRight(String args) throws IncorrectInputException {
         try {
             int x = Integer.parseInt(args);
             if (x > 5) {
                 throw new IncorrectInputException("x");
             }
-            throw new NullPointerException("x");
-        } catch (Exception e) {
+        } catch (IncorrectInputException e) {
             throw new IncorrectInputException("x");
         }
     }
@@ -43,17 +41,15 @@ public class Validator {
      *  Метод для проверки координат
      * @param args  - аргумент
      * @throws IncorrectInputException ошибка при отрицательном числе
-     * @throws NullPointerException ошибка при отрицательном числе
      */
 
-    public static void coordinateYIsRight(String args) throws IncorrectInputException, NullPointerException {
+    public static void coordinateYIsRight(String args) throws IncorrectInputException {
         try {
             long y = Long.parseLong(args);
             if (y > 503) {
                 throw new IncorrectInputException("y");
             }
-            throw new NullPointerException("y");
-        } catch (Exception e) {
+        } catch (IncorrectInputException e) {
             throw new IncorrectInputException("y");
         }
     }
@@ -70,7 +66,7 @@ public class Validator {
             Boolean value = Boolean.parseBoolean(args);
             throw new NullPointerException(data);
         }catch (Exception e){
-            throw new NullPointerException(data);
+            System.out.println("Введено некорректное значение");
         }
     }
 
@@ -84,7 +80,6 @@ public class Validator {
     public static void booleanIsBoolean(String args, String data) throws IncorrectInputException {
         try{
             Boolean value = Boolean.parseBoolean(args);
-            throw new IncorrectInputException(data);
         }catch (Exception e){
             throw new IncorrectInputException(data);
         }
@@ -115,7 +110,6 @@ public class Validator {
     public static void doubleIsDouble(String args, String data) throws IncorrectInputException {
         try{
             double value = Double.parseDouble(args);
-            throw new IncorrectInputException(data);
         }catch (Exception e){
             throw new IncorrectInputException(data);
         }
@@ -127,11 +121,15 @@ public class Validator {
      * @throws IncorrectInputException ошибка при отрицательном числе
      */
 
-
-
     public static void moodIsRight(String args) throws IncorrectInputException {
         try {
-            Mood.valueOf(args);
+            if (Validator.intIsInt(args)){
+                if (Integer.parseInt(args) > 5){
+                    throw new IncorrectInputException("Mood");
+                }
+            }else {
+                Mood.valueOf(args.toUpperCase());
+            }
         } catch (Exception e) {
             throw new IncorrectInputException("Mood");
         }
@@ -145,7 +143,15 @@ public class Validator {
 
     public static void weaponTypeIsRight(String args) throws IncorrectInputException {
         try {
-            WeaponType.valueOf(args);
+            if (Validator.intIsInt(args)){
+                if(Integer.parseInt(args) > 3){
+                    throw new IncorrectInputException("WeaponType");
+                }else{
+                    WeaponType.valueOf(args.toUpperCase());
+                }
+            }else {
+                WeaponType.valueOf(args.toUpperCase());
+            }
         } catch (Exception e) {
             throw new IncorrectInputException("WeaponType");
         }

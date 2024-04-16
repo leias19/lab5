@@ -3,6 +3,7 @@ package managers;
 import errors.UnknownElementException;
 import data.HumanBeing;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.TreeMap;
 
@@ -12,7 +13,6 @@ public class CollectionManager {
 
     /**
      * Метод для получения даты создания коллекции
-     *
      * @return дату создания
      */
     public static LocalDate getDate() {
@@ -21,7 +21,6 @@ public class CollectionManager {
 
     /**
      * Метод для удаления элемента по ключу
-     *
      * @param key ключ
      * @throws UnknownElementException ошибка при отсутствии элемента
      */
@@ -35,8 +34,7 @@ public class CollectionManager {
 
     /**
      * Метод для добавления в коллекцию
-     *
-     * @param key        ключ
+     * @param key ключ
      * @param humanBeing человек
      */
     public static void add(String key, HumanBeing humanBeing) {
@@ -48,7 +46,6 @@ public class CollectionManager {
 
     /**
      * Метод для получения коллекции
-     *
      * @return коллекцию
      */
     public static TreeMap<String, HumanBeing> getMap() {
@@ -57,13 +54,11 @@ public class CollectionManager {
 
     /**
      * Метод для установки коллекции
-     *
      * @param map коллекция
      */
 
     public static void setMap(TreeMap<String, HumanBeing> map) {
         CollectionManager.map = Objects.requireNonNullElseGet(map, TreeMap::new);
-
     }
 
     public static void removeIf(HumanBeing humanBeing) {
@@ -71,6 +66,20 @@ public class CollectionManager {
             if (map.get(key) == humanBeing) {
                 map.remove(key);
             }
+        }
+    }
+
+    public static void insertInScript(String[] args) throws Exception {
+        if (args.length >= 14) {
+            ArrayList<String> data = new ArrayList<>();
+            for (int i = 1 ;i<args.length;i++){
+                data.add(args[i]);
+            }
+            HumanBeing humanBeing = new HumanBeing(data.toArray(new String[0]));
+            CollectionManager.add(args[1], humanBeing);
+            System.out.println("элемент был добавлен в коллекцию");
+        } else {
+            System.out.println("недостаточно аргументов для добавления элемента в коллекцию");
         }
     }
 }

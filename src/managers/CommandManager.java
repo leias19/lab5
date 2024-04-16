@@ -36,11 +36,13 @@ public class CommandManager {
     }
 
     /**
-     *  Метод для запуска команд
+     *  Метод для выполнения команд
      * @param line строка
-     * @throws UnknownCommandException ошибка при отсутствии команды
-     * @throws FileNotFoundException ошибка при отсутствии файла
-     * @throws UnknownElementException ошибка при отсутствии элемента
+     * @param scripts скрипты
+     * @throws UnknownCommandException ошибка неизвестной команды
+     * @throws FileNotFoundException ошибка отсутствия файла
+     * @throws UnknownElementException ошибка неизвестного элемента
+     * @throws IncorrectInputException ошибка некорректного ввода
      */
     public static void startExecuting(String line, Set<String> scripts) throws UnknownCommandException, FileNotFoundException, UnknownElementException, IncorrectInputException {
         String[] lines = line.split(" ");
@@ -59,7 +61,7 @@ public class CommandManager {
                 scripts.add(scriptName);
             }
         }
-        command.execute(line.split(" "));
+        command.execute(lines);
         if(!commandName.equals("execute_script")) {
             System.out.println("команда выполнена :)");
         }

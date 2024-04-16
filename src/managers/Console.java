@@ -28,7 +28,7 @@ public class Console {
      */
     public void start(InputStream input) {
         Scanner scanner = new Scanner(input);
-        CommandManager commandManager = new CommandManager();
+        new CommandManager();
         CollectionManager.setMap(Objects.requireNonNull(FileManager.readFile(filename)).getHuman());
         while (scanner.hasNextLine()){
             String command = scanner.nextLine().trim();

@@ -89,5 +89,27 @@
                 <weaponType>BAT</weaponType>
             </value>
         </entry>
+        <entry>
+            <key>59</key>
+            <value>
+                <car>
+                    <cool>true</cool>
+                    <name>dfghj</name>
+                </car>
+                <coordinates>
+                    <x>3</x>
+                    <y>4</y>
+                </coordinates>
+                <creationdate>2024-04-08</creationdate>
+                <hasToothpick>true</hasToothpick>
+                <id>111383</id>
+                <impactSpeed>0.0</impactSpeed>
+                <mood>GLOOM</mood>
+                <name>kate</name>
+                <realHero>true</realHero>
+                <soundtrackName>dfghj</soundtrackName>
+                <weaponType>BAT</weaponType>
+            </value>
+        </entry>
     </added-humans>
 </community>

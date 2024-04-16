@@ -3,6 +3,7 @@ package commands;
 import errors.IncorrectInputException;
 import errors.UnknownCommandException;
 import errors.UnknownElementException;
+import managers.CollectionManager;
 import managers.CommandManager;
 import java.io.*;
 import java.util.HashSet;
@@ -15,7 +16,7 @@ public class ExecuteScript implements Command {
     /**
      *  Метод для выполнения команды execute_script
      * @param args аргумент
-     * @throws FileNotFoundException Исключение при некорректном вводе
+     * @throws FileNotFoundException ошибка отсутствия файла
      */
     @Override
     public void execute(String[] args) throws FileNotFoundException {
@@ -24,7 +25,11 @@ public class ExecuteScript implements Command {
         try{
             while(scanner.hasNextLine()){
                 String line = scanner.nextLine();
-                CommandManager.startExecuting(line, scripts);
+                if(line.split(" ")[0].equals("insert")){
+                    CollectionManager.insertInScript(line.split(" "));
+                }else{
+                    CommandManager.startExecuting(line, scripts);
+                }
             }
             System.out.println("команда выполнена :)");
         } catch (FileNotFoundException e) {
@@ -33,6 +38,8 @@ public class ExecuteScript implements Command {
             System.err.println("неизвестный элемент");
         } catch (UnknownCommandException | IncorrectInputException e) {
             System.err.println(e.getMessage());
+        } catch (Exception e) {
+            System.err.println("неизвестная ошибка");
         }
     }
 
