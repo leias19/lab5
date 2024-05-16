@@ -101,21 +101,21 @@ public class HumanBeing implements Comparable<HumanBeing>{
 
     @Override
     public String toString() {
-        return "HumanBeing{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", coordinate_x=" + coordinates.getX() +
-                ", coordinate_y=" + coordinates.getY() +
-                ", creation_date=" + creationDate +
-                ", real_hero=" + realHero +
-                ", has_toothpick=" + hasToothpick +
-                ", impact_speed=" + impactSpeed +
-                ", soundtrack_name='" + soundtrackName + '\'' +
-                ", weapon_type= " + weaponType +
-                ", mood=" + mood +
-                ", car_name=" + car.getName()+
-                ", car_cool=" + car.getCool()+
-                '}';
+        return "HumanBeing{" + "\n" +
+                "id = " + id + " \n" +
+                "name = '" + name + '\'' + "\n" +
+                "coordinate_x = " + coordinates.getX() + "\n" +
+                "coordinate_y = " + coordinates.getY() + "\n" +
+                "creation_date = " + creationDate + "\n" +
+                "real_hero = " + realHero + "\n" +
+                "has_toothpick = " + hasToothpick + "\n" +
+                "impact_speed = " + impactSpeed + "\n" +
+                "soundtrack_name = '" + soundtrackName + '\'' + "\n" +
+                "weapon_type = " + weaponType + "\n" +
+                "mood = " + mood + "\n" +
+                "car_name = " + car.getName()+ "\n" +
+                "car_cool = " + car.getCool()+ "\n" +
+                '}' + "\n";
     }
 
 

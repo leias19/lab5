@@ -11,15 +11,7 @@ public class Show implements Command {
      */
     @Override
     public void execute(String[] arg)  {
-        TreeMap<String, HumanBeing> map = CollectionManager.getMap();
-        if (map.isEmpty()) {
-            System.out.println(CollectionManager.getMap().getClass().getName() + " is empty");
-            return;
-        }
-        for (String s : map.keySet()) {
-            System.out.println(map.get(s));
-        }
-
+        CollectionManager.show();
     }
 
     /**

@@ -18,17 +18,19 @@ public class UpdateId implements Command {
             if (arg.length == 1) {
                 System.out.println("введите id после 'update_id'");
             }else{
+                int counter = 0;
                 int id = Integer.parseInt(arg[1]);
                 for (String key : CollectionManager.getMap().keySet()) {
                     if (CollectionManager.getMap().get(key).getId() == id) {
                         HumanBeing humanBeing = HumanBeingGenerator.createHumanBeing(id);
                         CollectionManager.remove(key);
                         CollectionManager.add(key, humanBeing);
-
                         System.out.println("элемент был обновлен");
                     }else{
-                        System.out.println("элемент с таким id отсутствует");
+                        counter++;
                     }
+                }if (counter == CollectionManager.getMap().size()){
+                    System.out.println("элемент с таким id отсутствует");
                 }
             }
         } catch (UnknownElementException e) {

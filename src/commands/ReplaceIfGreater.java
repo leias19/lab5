@@ -14,24 +14,26 @@ import java.util.TreeMap;
 public class ReplaceIfGreater implements Command {
     /**
      *  Метод для выполнения команды replace_if_greater
-     * @param args аргумент
-     */
-
-    /*
-    переделать команду без компаратора
-    map.stream().filter(predicate).onEach(key, value -> value = newValue)
+     * @param arg аргумент
      */
     @Override
-    public void execute(String[] args) throws UnknownElementException, IncorrectInputException {
-        String key = args[1];
-        TreeMap<String, HumanBeing> map = CollectionManager.getMap();
-        HumanBeingComparator h1 = new HumanBeingComparator();
-        if (map.containsKey(key)) {
-            HumanBeing humanBeing = HumanBeingGenerator.createHumanBeing(0);
-            if (h1.compare(humanBeing, map.get(key)) > 0) {
-                CollectionManager.remove(key);
-                CollectionManager.add(key, humanBeing);
+    public void execute(String[] arg) throws UnknownElementException, IncorrectInputException {
+        if (arg.length == 1){
+            System.out.println("введите ключ после 'replace_if_greater'");
+        }else{
+            String key = arg[1];
+            TreeMap<String, HumanBeing> map = CollectionManager.getMap();
+            HumanBeingComparator h1 = new HumanBeingComparator();
+            if (map.containsKey(key)) {
+                HumanBeing humanBeing = HumanBeingGenerator.createHumanBeing(0);
+                if (h1.compare(humanBeing, map.get(key)) > 0) {
+                    CollectionManager.remove(key);
+                    CollectionManager.add(key, humanBeing);
+                }
+            }else{
+                System.out.println("элемент с таким ключом отсутствует");
             }
+            System.out.println("замена выполнена");
         }
     }
 

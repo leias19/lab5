@@ -1,5 +1,6 @@
 package commands;
 
+import data.*;
 import errors.IncorrectInputException;
 import errors.UnknownCommandException;
 import errors.UnknownElementException;
@@ -21,12 +22,41 @@ public class ExecuteScript implements Command {
     @Override
     public void execute(String[] args) throws FileNotFoundException {
         String file_path = args[1];
+
         Scanner scanner = new Scanner(new FileReader(file_path));
         try{
             while(scanner.hasNextLine()){
                 String line = scanner.nextLine();
                 if(line.split(" ")[0].equals("insert")){
-                    CollectionManager.insertInScript(line.split(" "));
+                    int id = Integer.parseInt(scanner.nextLine());
+                    String name = scanner.nextLine();
+                    int x = Integer.parseInt(scanner.nextLine());
+                    long y = Long.parseLong(scanner.nextLine());
+                    Coordinates coordinates = new Coordinates(x, y);
+                    boolean realHero = Boolean.parseBoolean(scanner.nextLine());
+                    boolean hasToothpick = Boolean.parseBoolean(scanner.nextLine());
+                    double impactSpeed = Double.parseDouble(scanner.nextLine());
+                    String soundtrackName = scanner.nextLine();
+                    WeaponType weaponType = WeaponType.valueOf(scanner.nextLine().toUpperCase());
+                    Mood mood = Mood.valueOf(scanner.nextLine().toUpperCase());
+                    String carName = scanner.nextLine();
+                    boolean carCool = Boolean.parseBoolean(scanner.nextLine());
+                    Car car = new Car(carName, carCool);
+
+                    HumanBeing humanBeing = new HumanBeing(id);
+                    humanBeing.setName(name);
+                    humanBeing.setCoordinates(coordinates);
+                    humanBeing.setRealHero(realHero);
+                    humanBeing.setHasToothpick(hasToothpick);
+                    humanBeing.setImpactSpeed(impactSpeed);
+                    humanBeing.setSoundtrackName(soundtrackName);
+                    humanBeing.setWeaponType(weaponType);
+                    humanBeing.setMood(mood);
+                    humanBeing.setCar(car);
+
+                    CollectionManager.add(line.split(" ")[1],humanBeing);
+                    System.out.println("элемент добавлен");
+                    System.out.println("команда выполнена :)");
                 }else{
                     CommandManager.startExecuting(line, scripts);
                 }

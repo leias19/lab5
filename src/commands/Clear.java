@@ -13,11 +13,8 @@ public class Clear implements Command{
      */
     @Override
     public void execute(String[] arg)  {
-        TreeMap<String, HumanBeing> map = CollectionManager.getMap();
-        map.clear();
-        CollectionManager.setMap(map);
+        CollectionManager.clear();
         System.out.println("коллекция очищена");
-
     }
 
     /**

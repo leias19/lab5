@@ -41,9 +41,9 @@ public class Console {
                 } catch (UnknownCommandException e) {
                     System.err.println("Такой команды нет");
                 } catch (FileNotFoundException e) {
-                    System.err.println(" Файл не существует");
+                    System.err.println("Файл не существует");
                 } catch (UnknownElementException e) {
-                    System.err.println(" Такого элемента нет");
+                    System.err.println("Такого элемента нет");
                 } catch (IncorrectInputException e) {
                     System.err.println(e.getMessage());
                 }

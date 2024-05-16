@@ -11,19 +11,21 @@ public class RemoveLowerKey implements Command {
      * @param arg аргумент
      */
     @Override
-    public void execute(String[] arg) {
+    public void execute(String[] arg)  {
         TreeMap<String, HumanBeing> map = CollectionManager.getMap();
-
-        Scanner in = new Scanner(System.in);
-        System.out.println("Введите желаемый ключ: ");
-        String[] humanBeingsKey = in.nextLine().split(" ");
-        for (String key : map.keySet()) {
-            if (key.compareTo(humanBeingsKey[0]) < 0){
-                map.remove(key);
+        TreeMap<String, HumanBeing> newMap = new TreeMap<>();
+        if (arg.length == 1){
+            System.out.println("введите ключ после 'remove_greater_key'");
+        }else{
+            for (String keys : map.keySet()) {
+                if (Integer.parseInt(keys) > Integer.parseInt(arg[1])) {
+                    newMap.put(keys, map.get(keys));
+                }
             }
+            CollectionManager.setMap(newMap);
+            System.out.println("удаление выполнено");
         }
-        CollectionManager.setMap(map);
-        System.out.println("удаление выполнено");
+
     }
 
     /**

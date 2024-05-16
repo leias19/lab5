@@ -5,6 +5,8 @@ import data.HumanBeing;
 import data.Mood;
 import managers.CollectionManager;
 
+import java.util.Map;
+
 
 public class RemoveAnyByMood implements Command {
     /**
@@ -20,9 +22,9 @@ public class RemoveAnyByMood implements Command {
             } else {
                 int counter = 0;
                 Mood moodToRemove = Mood.valueOf(arg[1].toUpperCase());
-                for (HumanBeing humanBeing : CollectionManager.getMap().values()) {
-                    if (humanBeing.getMood() == moodToRemove) {
-                        CollectionManager.removeIf(humanBeing);
+                for (Map.Entry<String, HumanBeing> humanBeing : CollectionManager.getMap().entrySet()) {
+                    if (humanBeing.getValue().getMood() == moodToRemove) {
+                        CollectionManager.remove(humanBeing.getKey());
                         System.out.println("удаление выполнено");
                         counter++;
                         break;
@@ -33,7 +35,9 @@ public class RemoveAnyByMood implements Command {
                 }
 
             }
-        } catch (Exception ignored) {}
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 

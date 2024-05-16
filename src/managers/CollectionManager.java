@@ -1,5 +1,8 @@
 package managers;
 
+import data.comporators.HumanBeingComparator;
+import data.generators.HumanBeingGenerator;
+import errors.IncorrectInputException;
 import errors.UnknownElementException;
 import data.HumanBeing;
 import java.time.LocalDate;
@@ -33,6 +36,21 @@ public class CollectionManager {
     }
 
     /**
+     *  Метод для очистки коллекции
+     */
+    public static void clear() {
+        map.clear();
+    }
+    public  static void show() {
+        if (map.isEmpty()) {
+            System.out.println(CollectionManager.getMap().getClass().getName() + " is empty");
+            return;
+        }
+        for (String key : map.keySet()) {
+            System.out.println(map.get(key).toString());
+        }
+    }
+    /**
      * Метод для добавления в коллекцию
      * @param key ключ
      * @param humanBeing человек
@@ -61,25 +79,11 @@ public class CollectionManager {
         CollectionManager.map = Objects.requireNonNullElseGet(map, TreeMap::new);
     }
 
-    public static void removeIf(HumanBeing humanBeing) {
-        for (String key : map.keySet()) {
-            if (map.get(key) == humanBeing) {
-                map.remove(key);
-            }
-        }
-    }
+    /**
+     *  Метод для замены элемента коллекции по ключу
+     * @param key ключ
+     * @throws UnknownElementException ошибка при отсутствии элемента
+     * @throws IncorrectInputException ошибка при некорректном вводе
+     */
 
-    public static void insertInScript(String[] args) throws Exception {
-        if (args.length >= 14) {
-            ArrayList<String> data = new ArrayList<>();
-            for (int i = 1 ;i<args.length;i++){
-                data.add(args[i]);
-            }
-            HumanBeing humanBeing = new HumanBeing(data.toArray(new String[0]));
-            CollectionManager.add(args[1], humanBeing);
-            System.out.println("элемент был добавлен в коллекцию");
-        } else {
-            System.out.println("недостаточно аргументов для добавления элемента в коллекцию");
-        }
-    }
 }
